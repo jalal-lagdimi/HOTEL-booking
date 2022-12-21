@@ -1,5 +1,5 @@
 <?php
 
-define('BASE_URL','http://localhost/HOTELwebsite/');
+define('BASE_URL','http://localhost/HOTEL-booking/');
 
 ?>
