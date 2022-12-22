@@ -108,8 +108,5 @@ class Product {
         $stmt=null;
     }
 
-
-
-
 }
 ?>

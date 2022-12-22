@@ -74,7 +74,7 @@ if(isset($_POST['submit'])){
                   </div>
 
                   <div class="form-outline mb-3">
-                    <input value="<?php echo $product['capacity']; ?>" name="capacity" type="number" id="form2Example27" class="form-control" placeholder="Capacity" />
+                    <input value="<?php echo $product['capacity']; ?>" id="capacity" name="capacity" type="number" id="form2Example27" class="form-control" placeholder="Capacity" />
                   </div>
 
                   <div class="form-outline mb-3">
