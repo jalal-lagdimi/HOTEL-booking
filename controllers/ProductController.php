@@ -71,7 +71,7 @@ class ProductController{
             
             $data =  array(
                 'id' => $_POST['id'],
-                'destination' => $_POST['name'],
+                'name' => $_POST['name'],
                 'description' => $_POST['description'],
                 'price' => $_POST['price'],
                 'type' => $_POST['type'],
