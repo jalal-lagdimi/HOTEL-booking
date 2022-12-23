@@ -1,9 +1,9 @@
 <?php
 if(isset($_POST['submit'])){
  
-    $loginAdmin = new AdminController();
-    $loginAdmin->auth();
-
+    $loginUsser = new AdminController();
+    $loginUsser->authusser();
+  
 }
 ?>
 <!DOCTYPE html>
@@ -46,7 +46,8 @@ if(isset($_POST['submit'])){
                     <input name="password" type="password" id="form2Example27" class="form-control " placeholder="Enter your Password" />   
                   </div>
                   <div class="pt-1 mb-4">
-                   
+                    <p>Don't have an acount ? <a href="<?php echo BASE_URL;?>signup" style="color:rgb(47, 126, 222);">Sign Up for free</a>
+                    </p>
                 </div>
                   <div class="pt-1 mb-4">
                     <button name="submit" class="btn btn-block" style="background-color: rgb(47, 126, 222);color: aliceblue;" border: none;style="background-color: #00c8ff" type="submit">Login</button>

@@ -43,20 +43,20 @@ if(isset($_POST['submit'])){
                 <?php include "./views/includes/alerts.php" ?>
                 <input type="hidden" name="id" value="<?php echo $product['id'];?>">
 
-                  <div class="form-outline mb-3">
+                  <div class="form-outline mb-2">
                     <input value="<?php echo $product['name']; ?>" name="name" type="text" id="form2Example17" class="form-control" placeholder="name" />
                    
                   </div>
 
                   <div class="form-outline mb-3">
-                    <input value="<?php echo $product['description']; ?>" name="description" type="text" id="form2Example27" class="form-control" placeholder="Description" />
+                    <input value="<?php echo $product['description']; ?>" name="description" type="text" id="form2Example27" class="form-control" placeholder="Description" minlength="4" maxlength="80" />
                   </div>
 
-                  <div class="form-outline mb-3">
+                  <div class="form-outline mb-2">
                     <input value="<?php echo $product['price']; ?>" name="price" type="number" id="form2Example27" class="form-control" placeholder="Price"/>
                   </div>
 
-                  <div class="form-outline mb-3" name="type" >
+                  <div class="form-outline mb-2" name="type" >
                     <select class="form-select"  name="type" aria-label="Default select example" id="room">
                         <option value="SINGLE">SINGLE</option>
                         <option value="DOUBLE">DOUBLE</option>
@@ -64,8 +64,9 @@ if(isset($_POST['submit'])){
                       </select>
                   </div>
 
-                  <div class="form-outline mb-3" name="suitetype" >
-                    <select class="form-select"  name="suitetype" aria-label="Default select example" id="suite" style="display: none;">
+                  <div class="form-outline mb-2" name="suitetype"  id="suite" style="display: none;">
+                  <label for="suitetype">Choose suite type</label>
+                    <select class="form-select"  name="suitetype" aria-label="Default select example">
                         <option value=""></option>
                         <option value="Standard suite">Standard suite rooms</option>
                         <option value="Junior suite">Junior suite rooms</option>
@@ -73,8 +74,9 @@ if(isset($_POST['submit'])){
                       </select>
                   </div>
 
-                  <div class="form-outline mb-3">
-                    <input value="<?php echo $product['capacity']; ?>" id="capacity" name="capacity" type="number" id="form2Example27" class="form-control" placeholder="Capacity" />
+                  <div class="form-outline mb-2">
+                    <label for="capacity">Capacity</label>
+                    <input value="1" id="capacity" name="capacity" type="number" id="form2Example27" class="form-control" placeholder="Capacity" readonly/>
                   </div>
 
                   <div class="form-outline mb-3">

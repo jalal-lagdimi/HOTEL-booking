@@ -1,5 +1,4 @@
 const select = document.getElementById('room');
-console.log(select);
 
 const formroom = document.getElementById("suite");
 let capacity = document.getElementById('capacity')

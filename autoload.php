@@ -22,6 +22,5 @@ function autoload($class_name){
             include_once $file;
         }
     }
-
 }
 ?>

@@ -24,19 +24,22 @@
           <a class="nav-link" href="#">HOME</a>
         </li> 
         <li class="nav-item">
-          <a class="nav-link" href="#rooms">ROOMS</a>
+          <a class="nav-link" href="#booking">ROOMS</a>
         </li> 
         <li class="nav-item">
           <a class="nav-link" href="#about">ABOUT</a>
         </li> 
         <li class="nav-item">
+          <a class="nav-link " href="#services">SERVICE</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="#contact">CONTACT</a>
         </li>     
         <li class="nav-item">
-          <a class="nav-link nv" href="#">LOGIN</a>
+          <a class="nav-link nv" href="loginusser">LOGIN</a>
         </li>  
         <li class="nav-item">
-          <a class="nav-link nv" href="#">SIGN UP</a>
+          <a class="nav-link nv" href="signup">SIGN UP</a>
         </li>  
       </ul>
      
@@ -89,9 +92,97 @@
   </button>
 </div>
 
+<!-- BOOKING -->
+
+  <section id="booking" class="about section-padding mt-3">
+  <div class="container">
+    <div class="section-header text-center pb-3">
+      <h2>BOOKING YOUR ROOM</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum suscipit <br> itaque,fuga quas voluptate dolorem</p>
+    </div>
+    <form action="" method="POST">
+        <div class="book d-flex items-center ">
+            <div class="date" data-provide="datepicker">
+                <label for="date">From</label>
+                <input name="from"type="date" id="date" class="form-control d-block" value="2022-12-20" min="2022-12-20"
+                    max="2023-12-20">
+            </div>
+            <div class="date" data-provide="datepicker">
+                <label for="date">To</label>
+                <input name="to" type="date" id="date" class="form-control d-block" value="2022-12-20" min="2022-12-20"
+                    max="2023-12-20">
+            </div>
+            <div class="date" data-provide="datepicker" name="type">
+                <label for="">Room</label>
+                <select class="form-select" aria-label="Default select example" id="chambre">
+                    <option selected value="0">SINGLE</option>
+                    <option value="1">double</option>
+                    <option value="2">suite</option>
+                </select>
+            </div>
+            <div class="date" data-provide="datepicker" id="suite" name="suitetype">
+                <label for="">Suite</label>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Standard suite room</option>
+                    <option value="1">Junior suite room</option>
+                    <option value="2">Presidential suite room</option>
+                </select>
+            </div>
+            <div class="date" data-provide="datepicker" id="children"name="capacity">
+                <label for="">Person</label>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected value="1">01</option>
+                    <option value="1">02</option>
+                    <option value="2">03</option>
+                    <option value="3">04</option>
+                    <option value="3">05</option>
+                    <option value="3">06</option>
+                </select>
+            </div>
+            <div class="date" data-provide="datepicker">
+                <button name="submit" type="button" class="btn bknow">Search</button>
+            </div>
+        </div> 
+    </form>
+  </div>
+
+  <?php
+$data = new ProductController();
+$products = $data->getAllProducts();
+ ?>
+
+ <section id="rooms" class="rooms section-padding">
+  <div class="container">
+    <div class="row d-flex flex-wrap">
+    <?php foreach($products as $product):?>
+      <div class="col-12 col-md-6 col-lg-4 mb-5">
+        <div class="card text-light text-center bg-white pb-2">
+          <div class="card-body text-dark">
+            <div class="img-area mb-2">
+              <img src="uploads/<?php echo $product['image'];?>"style="width: 100%;height: 350px;" alt="">
+              <h3 class="card-title pt-2"style="color:rgb(22, 109, 136);"><?php echo $product['name'];?></h3>
+              <p> <?php echo $product['description'];?></p>
+              <h6 class="type" style="color:rgb(22, 109, 136);"><?php echo $product['type'];?></h6>
+              <div class="stars mb-2"style="color: rgb(255, 225, 0);">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <h5 mb-3>FROM <?php echo $product['price'];?>$</h5>
+              <button class="btn text-white"> BOOK NOW</button>
+            </div>
+          </div>
+        </div> 
+      </div> 
+      <?php endforeach; ?>
+    </div>
+ </section>
+</section>
 <!-- ABOUT US -->
 
-<section id="about" class="about section-padding mt-5">
+<section id="about" class="about section-padding mt-1">
   <div class="container">
     <div class="section-header text-center pb-3">
       <h2>ABOUT US</h2>
@@ -99,7 +190,7 @@
     </div>
     <div class="row">
       <div class="col-lg-6 col-md-12 col-12">
-        <div class="about-img">
+        <div class="about-img mb-2">
           <img src="./views/img/M9.jpg" style="height: 350px; width: 100%;border-radius: 8px;" alt="" class="img-fluid">
         </div>
       </div>
@@ -166,85 +257,7 @@
   </div>
  </section>
 
- <!-- ROOMS -->
-
- <section id="rooms" class="rooms section-padding">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="section-header text-center pb-3">
-          <h2>OUR ROOMS</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br> Autem odit ad ea dolores unde voluptatum.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-12 col-md-12 col-lg-4">
-        <div class="card text-light text-center bg-white pb-2">
-          <div class="card-body text-dark">
-            <div class="img-area mb-2">
-              <img src="./views/img/M8.png" style="width: 100%;height: 350px;" alt="">
-              <h3 class="card-title pt-2">ROOM R7</h3>
-              <p class="lead">Lorem ipsum dolor sit amet <br> consectetur adipisicing elit. </p>
-              <div class="stars mb-2"style="color: rgb(255, 225, 0);">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-              <h5 mb-3>FROM 600$</h5>
-              <button class="btn text-white">SHOW MORE</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-12 col-lg-4">
-        <div class="card text-light text-center bg-white pb-2">
-          <div class="card-body text-dark">
-            <div class="img-area mb-2">
-              <img src="./views/img/M7.png" style="width: 100%; height: 350px;" alt="">
-              <h3 class="card-title pt-2">ROOM R7</h3>
-              <p class="lead">Lorem ipsum dolor sit amet <br> consectetur adipisicing elit.</p>
-              <div class="stars mb-2" style="color: rgb(255, 225, 0);">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-              <h5>FROM 600$</h5>
-              <button class="btn text-white">SHOW MORE</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-12 col-lg-4">
-        <div class="card text-light text-center bg-white pb-2">
-          <div class="card-body text-dark">
-            <div class="img-area mb-2">
-              <img src="./views/img/M6.jpeg" style="width: 100%;height: 350px;" alt="">
-              <h3 class="card-title pt-2">ROOM R7</h3>
-              <p class="lead">Lorem ipsum dolor sit amet <br> consectetur adipisicing elit.</p>
-              <div class="stars mb-2" style="color: rgb(255, 225, 0);">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-              <h5>FROM 600$</h5>
-              <button class="btn text-white">SHOW MORE</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
- </section>
+ 
 
  <!-- CONTACT -->
 <section id="contact">
@@ -328,5 +341,6 @@
   <p class="text-center pt-4">Copyright@2023 CR7 | all rights reserved | contact </p>
  </footer>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+ <script src="./views/js/book.js"></script>
 </body>
 </html>

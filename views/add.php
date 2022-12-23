@@ -34,19 +34,19 @@ if(isset($_POST['submit'])){
               <div class="card-body p-4 p-lg-5 text-black">
                 <form method="POST" enctype="multipart/form-data">
                 <?php include "./views/includes/alerts.php" ?>
-                  <div class="form-outline mb-3">
+                  <div class="form-outline mb-2">
                     <input name="name" type="text" id="form2Example17" class="form-control" placeholder="name" />
                   </div>
 
-                  <div class="form-outline mb-3">
-                    <input name="description" type="text" id="form2Example27" class="form-control" placeholder="Description" />
+                  <div class="form-outline mb-2">
+                    <input name="description" type="text" id="form2Example27" class="form-control" placeholder="Description" minlength="4" maxlength="80" />
                   </div>
 
-                  <div class="form-outline mb-3">
+                  <div class="form-outline mb-2">
                     <input name="price" type="number" id="form2Example27" class="form-control" placeholder="Price"/>
                   </div>
 
-                  <div class="form-outline mb-3" name="type" >
+                  <div class="form-outline mb-2" name="type" >
                     <select class="form-select"  name="type" aria-label="Default select example" id="room">
                         <option value="SINGLE">SINGLE</option>
                         <option value="DOUBLE">DOUBLE</option>
@@ -54,8 +54,10 @@ if(isset($_POST['submit'])){
                       </select>
                   </div>
 
-                  <div class="form-outline mb-3" name="suitetype" >
-                    <select class="form-select"  name="suitetype" aria-label="Default select example" id="suite" style="display: none;">
+                  <div class="form-outline mb-2" name="suitetype"  id="suite" style="display: none;">
+                  <label for="suite">Choose suite type</label>
+                    <select class="form-select"  name="suitetype" aria-label="Default select example">
+                       
                         <option value="" ></option>
                         <option value="Standard suite">Standard suite rooms</option>
                         <option value="Junior suite">Junior suite rooms</option>
@@ -63,11 +65,12 @@ if(isset($_POST['submit'])){
                       </select>
                   </div>
 
-                  <div class="form-outlin mb-3">
-                    <input value="1" name="capacity" type="number" id="capacity" class="form-control" placeholder="Capacity"  />
+                  <div class="form-outlin mb-2">
+                    <label for="capacity">Capacity</label>
+                    <input value="1" name="capacity" type="number" id="capacity" class="form-control" placeholder="Capacity" readonly/>
                   </div>
 
-                  <div class="form-outline mb-3">
+                  <div class="form-outline mb-2">
                     <input name="file" type="file" id="form2Example27" class="form-control" />
                     
                   </div>
@@ -86,6 +89,6 @@ if(isset($_POST['submit'])){
       </div>
     </div>
   </div>
-  <script src="./views/js/script.js"></script>
+  <script src="./views/js/add.js"></script>
 </section>
 

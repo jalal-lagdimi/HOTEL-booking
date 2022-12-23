@@ -1,12 +1,14 @@
 *{
 	font-family: montserrat;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 	}
 	body{
 		background: f1fbff;
+		overflow-x: hidden;
 	}
-	.section-padding{
-		padding: 100px 0;
-	}
+
 	.carousel-item{
 		height: 100vh;
 		min-height: 300px;
@@ -88,7 +90,9 @@
 	.rooms .card button{
 		background-color: rgb(64, 147, 172);
 	 }
-	
+	 .section-padding {
+		padding: 100px 0;
+	}
 	.form-area{
 		padding: 7%;
 	}
@@ -137,6 +141,35 @@
 	.right button:hover{
 		background-color: rgb(6, 55, 70);
 	}
+	.book{
+		margin: 20px auto;
+		height: fit-content;
+		width: fit-content;
+	
+	}
+	.date{
+		height: 150px;
+		background-color: hsl(194, 97%, 26%);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: 0 10px;
+		border: 2px solid #013a54;
+		color: #ffffff;
+	}
+	.bknow{
+		color:#ffffff;
+		margin-top: 15px;
+	}
+	
+	.BookNow{
+		background-color: hsl(194, 97%, 26%);
+		color: white;
+		width: 140px;
+		padding: 5px 0;
+		margin: 0 auto;
+		margin-bottom: -40px; 
+	}
 	
 	
 	
@@ -161,6 +194,14 @@
 			left: 50%;
 		}
 	}
+
+	
+	@media screen and (max-width:830px) {
+		.date{
+			width: 100px;
+		}
+	}
+
 	@media screen and (max-width: 767px){
 		.navbar-nav{
 			text-align: center;
@@ -195,5 +236,16 @@
 		.right button{
 			width: 250px;
 			padding: 12px 0;
+		}
+	}
+
+	@media screen and (max-width:613px){
+		.book{
+			flex-direction: column;
+			width: 350px;
+		}
+		.date{
+			width: 100%;
+			padding: 5px 10px;
 		}
 	}
