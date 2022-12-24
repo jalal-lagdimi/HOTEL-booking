@@ -13,10 +13,11 @@ class AdminController{
                 'email'=> $_POST['email'],
                 'password'=> $password,
             );
+            $result = Admin::loginusser($data);
             if(empty($_POST['fullname'])||empty($_POST['date'])||empty($_POST['email'])||empty($_POST['password'])){
                 Session::set('error','fill out all');
                 Redirect::to('signup');
-            }else if($_POST['email']=== $data['email']){
+            }else if($_POST['email']=== $result->email ){
                     Session::set('error','email already used');
                     Redirect::to('signup');
             }
