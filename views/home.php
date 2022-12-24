@@ -114,29 +114,18 @@
             </div>
             <div class="date" data-provide="datepicker" name="type">
                 <label for="">Room</label>
-                <select class="form-select" aria-label="Default select example" id="chambre">
-                    <option selected value="0">SINGLE</option>
-                    <option value="1">double</option>
-                    <option value="2">suite</option>
+                <select class="form-select" aria-label="Default select example" id="room">
+                    <option value="SINGLE">SINGLE</option>
+                    <option value="DOUBLE">DOUBLE</option>
+                    <option value="SUITE">SUITE</option>
                 </select>
             </div>
-            <div class="date" data-provide="datepicker" id="suite" name="suitetype">
+            <div class="date" data-provide="datepicker" id="suite" name="suitetype" style="display: none;">
                 <label for="">Suite</label>
                 <select class="form-select" aria-label="Default select example">
-                    <option selected>Standard suite room</option>
-                    <option value="1">Junior suite room</option>
-                    <option value="2">Presidential suite room</option>
-                </select>
-            </div>
-            <div class="date" data-provide="datepicker" id="children"name="capacity">
-                <label for="">Person</label>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected value="1">01</option>
-                    <option value="1">02</option>
-                    <option value="2">03</option>
-                    <option value="3">04</option>
-                    <option value="3">05</option>
-                    <option value="3">06</option>
+                    <option selected value="Standard suite room">Standard suite room</option>
+                    <option value="Junior suite room">Junior suite room</option>
+                    <option value="Presidential suite room">Presidential suite room</option>
                 </select>
             </div>
             <div class="date" data-provide="datepicker">

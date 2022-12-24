@@ -63,11 +63,9 @@ if(isset($_POST['submit'])){
                         <option value="SUITE">SUITE</option>
                       </select>
                   </div>
-
                   <div class="form-outline mb-2" name="suitetype"  id="suite" style="display: none;">
-                  <label for="suitetype">Choose suite type</label>
-                    <select class="form-select"  name="suitetype" aria-label="Default select example">
-                        <option value=""></option>
+                    <select class="form-select"  name="suitetype" aria-label="Default select example">   
+                        <option value="" ></option>
                         <option value="Standard suite">Standard suite rooms</option>
                         <option value="Junior suite">Junior suite rooms</option>
                         <option value="Presidential suite">Presidential suite</option>
@@ -98,6 +96,6 @@ if(isset($_POST['submit'])){
       </div>
     </div>
   </div>
-  <script src="./views/js/script.js"></script>
+  <script src="./views/js/add.js"></script>
 </section>
 

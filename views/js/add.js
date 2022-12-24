@@ -11,8 +11,7 @@ if(e.target.value == "SINGLE"){
 	formroom.style.display = "none";
 	capacity.value=2;
 }else{
-	formroom.style.display = "block";
+	formroom.style.display = "flex";
 	capacity.value=6;
-	
 }
 })
