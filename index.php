@@ -45,7 +45,7 @@ if (isset($_GET['page']) && in_array($_GET['page'],$adminPages)) {
   }else if($_GET['page'] === "signup"){
     $home->index('signup');
   }else{
-    include('views/includes/404.php');
+    $home->index('home');
   }
    
 }else if(isset($_GET['page']) && in_array($_GET['page'],$pages)){
