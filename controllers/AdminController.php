@@ -64,5 +64,8 @@ class AdminController{
     static public function logout(){
         session_destroy();
     }
+    static public function logoutuser(){
+        session_destroy();
+    }
 }
 ?>

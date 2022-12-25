@@ -1,3 +1,3 @@
 booking
 
-<a href="<?php echo BASE_URL;?>logout">LOG OUT</a>
+<a href="<?php echo BASE_URL;?>logoutuser">LOG OUT</a>
