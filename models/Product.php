@@ -128,7 +128,19 @@ class Product {
         $stmt=null;
     }
 
- 
+    
+    public static function reservation($data){
+        $stmt = DB::connect()->prepare('INSERT INTO reservation (datedebut,datefin)VALUES (:datedebut,:datefin)');
+        $stmt->bindParam(':datedebut',$data['datedebut']);
+        $stmt->bindParam(':datefin',$data['datefin']);
+                          
+        if($stmt->execute()){
+            return 'ok';
+        } else {
+            return 'error';
+        }
+        $stmt=null;
+    }
 
 }
 ?>

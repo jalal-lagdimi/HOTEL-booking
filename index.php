@@ -8,7 +8,7 @@ $home = new HomeController();
 
 $adminPages = ['add','update','delete','logout','dashbord','login'];
 
-$pages = ['home','loginuser','signup'];
+$pages = ['home','loginuser','signup','reservation'];
 
 $userPages = ['booking','loginuser','signup','logoutuser'];
 
