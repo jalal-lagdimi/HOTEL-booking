@@ -2,7 +2,7 @@
 if(isset($_POST['submit'])){
  
     $loginUsser = new AdminController();
-    $loginUsser->authusser();
+    $loginUsser->authuser();
   
 }
 ?>

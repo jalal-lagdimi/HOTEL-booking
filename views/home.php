@@ -36,7 +36,7 @@
           <a class="nav-link" href="#contact">CONTACT</a>
         </li>     
         <li class="nav-item">
-          <a class="nav-link nv" href="loginusser">LOGIN</a>
+          <a class="nav-link nv" href="loginuser">LOGIN</a>
         </li>  
         <li class="nav-item">
           <a class="nav-link nv" href="signup">SIGN UP</a>

@@ -13,7 +13,7 @@ class AdminController{
                 'email'=> $_POST['email'],
                 'password'=> $password,
             );
-            $result = Admin::loginusser($data);
+            $result = Admin::loginuser($data);
             if(empty($_POST['fullname'])||empty($_POST['date'])||empty($_POST['email'])||empty($_POST['password'])){
                 Session::set('error','fill out all');
                 Redirect::to('signup');
@@ -25,7 +25,7 @@ class AdminController{
                 $result = Admin::creatUser($data);
                 if($result==='ok'){
                     Session::set('success','acount created');
-                    Redirect::to('loginusser');
+                    Redirect::to('loginuser');
                 } else {
                     echo $result;
                 }
@@ -48,16 +48,16 @@ class AdminController{
         }
     }
 
-    public function authusser(){
+    public function authuser(){
         if(isset($_POST['submit'])){
             $data['email'] = $_POST['email'];
-            $result = Admin::loginusser($data);
+            $result = Admin::loginuser($data);
             if($result->email === $_POST['email'] && password_verify($_POST['password'],$result->password)){
-                $_SESSION['loggedusser'] = true;
+                $_SESSION['loggeduser'] = true;
                 Redirect::to('booking');
             } else {
                 Session::set('error','email or password not valid');
-                Redirect::to('loginusser');
+                Redirect::to('loginuser');
             }
         }
     }

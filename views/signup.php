@@ -52,7 +52,7 @@ if(isset($_POST['submit'])){
                     <input name="password" type="password" id="form2Example27" class="form-control " placeholder="Enter your Password" />   
                   </div>
                   <div class="pt-1 mb-1">
-                    <p>Have an acount ?<a href="<?php echo BASE_URL;?>loginusser" style="color:rgb(47, 126, 222);"> Login</a>
+                    <p>Have an acount ?<a href="<?php echo BASE_URL;?>loginuser" style="color:rgb(47, 126, 222);"> Login</a>
                     </p>
                 </div>
                   <div class="pt-1 mb-1">

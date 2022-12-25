@@ -17,7 +17,7 @@ class Admin{
         }
     }
 
-    public static function loginusser($data){
+    public static function loginuser($data){
         $email = $data['email'];
         try{
             $query = 'SELECT * FROM user WHERE email=:email';
