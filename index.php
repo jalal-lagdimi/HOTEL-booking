@@ -12,9 +12,9 @@ $pages = ['home','loginuser','signup'];
 
 $userPages = ['booking','loginuser','signup','logoutuser'];
 
-if (!isset($_GET['page'])) {
-  $home->index('home');
-}
+// if (!isset($_GET['page'])) {
+//   $home->index('home');
+// }
 
 if (isset($_GET['page']) && in_array($_GET['page'],$adminPages)) {
 
@@ -51,6 +51,32 @@ if (isset($_GET['page']) && in_array($_GET['page'],$adminPages)) {
 }else if(isset($_GET['page']) && in_array($_GET['page'],$pages)){
       $page=$_GET['page'];
       $home->index($page);
-}else{
-  include('views/includes/404.php');
-}
+    }else if (!isset($_GET['page'])) {
+        $home->index('home');
+      }else{
+        include('views/includes/404.php');
+      }
+
+
+// if (isset($_GET['page']) && in_array($_GET['page'],$adminPages)) {
+
+//   if (isset($_SESSION['logged']) && isset($_SESSION['logged']) === true) {
+//     if ($_GET['page'] === "login") {
+//       $home->index("dashbord");
+//     } else {
+//       $page = $_GET['page'];
+//       $home->index($page);
+//     }
+    
+//   }else{
+//     $home->index('login');
+//   }
+
+// }else if(isset($_GET['page']) && in_array($_GET['page'],$pages)){
+//       $page=$_GET['page'];
+//       $home->index($page);
+// }else if (!isset($_GET['page'])) {
+//   $home->index('home');
+// }else{
+//   include('views/includes/404.php');
+// }
