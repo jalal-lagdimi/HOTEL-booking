@@ -6,6 +6,25 @@ class ProductController{
         return $products;
     }
 
+
+    public function searchAllProducts(){
+        if(!empty($_POST['suitetype'])){
+            $data =  array(
+                'type'=> $_POST['type'],
+                'suitetype'=> $_POST['suitetype'],
+            );
+            $products = Product::searchAll($data);
+            return $products;
+        }else{
+            $data =  array(
+                'type'=> $_POST['type'],
+            );  
+            $products = Product::searchOne($data);
+            return $products;
+        }  
+    }
+   
+
     public function getOneProduct(){
         if(isset($_POST['id'])){
             $data = array(
@@ -114,5 +133,8 @@ class ProductController{
             }
         }
     }
+
+
+ 
 }
 ?>

@@ -7,6 +7,26 @@ class Product {
         $stmt = null;
     }
 
+
+    static public function searchAll($data){
+        $stmt = DB::connect()->prepare('SELECT * FROM rooms WHERE type=:type AND suitetype=:suitetype');
+        $stmt->bindParam(':type',$data['type']);
+        $stmt->bindParam(':suitetype',$data['suitetype']);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt = null;
+    }
+
+
+    static public function searchOne($data){
+        $stmt = DB::connect()->prepare('SELECT * FROM rooms WHERE type=:type');
+        $stmt->bindParam(':type',$data['type']);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt = null;
+    }
+
+
     static public function getProduct($data){
         $id = $data['id'];
         try{
@@ -107,6 +127,8 @@ class Product {
         }
         $stmt=null;
     }
+
+ 
 
 }
 ?>

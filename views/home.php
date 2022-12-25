@@ -93,7 +93,16 @@
 </div>
 
 <!-- BOOKING -->
+<?php
+if(isset($_POST['submit'])){
+  $data = new ProductController();
+  $products = $data->searchAllProducts();
+}else{
+  $data = new ProductController();
+  $products = $data->getAllProducts();
+}
 
+ ?>
   <section id="booking" class="about section-padding mt-3">
   <div class="container">
     <div class="section-header text-center pb-3">
@@ -112,33 +121,31 @@
                 <input name="to" type="date" id="date" class="form-control d-block" value="2022-12-20" min="2022-12-20"
                     max="2023-12-20">
             </div>
-            <div class="date" data-provide="datepicker" name="type">
+            <div class="date" data-provide="datepicker">
                 <label for="">Room</label>
-                <select class="form-select" aria-label="Default select example" id="room">
+                <select  name="type" class="form-select" aria-label="Default select example" id="room">
                     <option value="SINGLE">SINGLE</option>
                     <option value="DOUBLE">DOUBLE</option>
                     <option value="SUITE">SUITE</option>
                 </select>
             </div>
-            <div class="date" data-provide="datepicker" id="suite" name="suitetype" style="display: none;">
+            <div class="date" data-provide="datepicker" id="suite" style="display: none;">
                 <label for="">Suite</label>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected value="Standard suite room">Standard suite room</option>
-                    <option value="Junior suite room">Junior suite room</option>
+                <select  name="suitetype" class="form-select" aria-label="Default select example">
+                <option value="">Select suite type</option>
+                    <option value="Standard suite rooms">Standard suite rooms</option>
+                    <option value="Junior suite rooms">Junior suite rooms</option>
                     <option value="Presidential suite room">Presidential suite room</option>
                 </select>
             </div>
             <div class="date" data-provide="datepicker">
-                <button name="submit" type="button" class="btn bknow">Search</button>
+                <button name="submit" type="submit" class="btn bknow">Search</button>
             </div>
         </div> 
     </form>
   </div>
 
-  <?php
-$data = new ProductController();
-$products = $data->getAllProducts();
- ?>
+
 
  <section id="rooms" class="rooms section-padding">
   <div class="container">
@@ -151,7 +158,11 @@ $products = $data->getAllProducts();
               <img src="uploads/<?php echo $product['image'];?>"style="width: 100%;height: 350px;" alt="">
               <h3 class="card-title pt-2"style="color:rgb(22, 109, 136);"><?php echo $product['name'];?></h3>
               <p> <?php echo $product['description'];?></p>
-              <h6 class="type" style="color:rgb(22, 109, 136);"><?php echo $product['type'];?></h6>
+              <h6 class="type" style="color:rgb(22, 109, 136);"><?php echo $product['type'];?>
+             <?php if($product['type']=='SUITE'){ ?>
+                <?php echo '/'. $product['suitetype'];   
+              }?>
+              </h6>
               <div class="stars mb-2"style="color: rgb(255, 225, 0);">
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
@@ -159,8 +170,9 @@ $products = $data->getAllProducts();
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
               </div>
-              <h5 mb-3>FROM <?php echo $product['price'];?>$</h5>
-              <button class="btn text-white"> BOOK NOW</button>
+              <input type="hidden" name="id" value="<?php echo $product['id'];?>">
+              <h5 mb-3><?php echo $product['price'];?>$/Night</h5>
+              <button ><a class="btn text-white" href="<?php echo BASE_URL;?>reservation">Book Now</a></button>
             </div>
           </div>
         </div> 
