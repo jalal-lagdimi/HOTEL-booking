@@ -5,16 +5,34 @@ require_once './controllers/HomeController.php';
 
 $home = new HomeController();
 
-$pages = ['home','add','update','delete','logout','dashbord','login','loginuser','signup','booking'];
 
+$adminPages = ['add','update','delete','logout','dashbord','login'];
 
+$pages = ['home','loginuser','signup',];
 
-if(isset($_GET['page']) && in_array($_GET['page'],$pages)){
-  $page=$_GET['page'];
-  $home->index($page);
-}else if (!isset($_GET['page'])) {
+$userPages = ['booking'];
+
+if (!isset($_GET['page'])) {
   $home->index('home');
+}
+
+if (isset($_GET['page']) && in_array($_GET['page'],$adminPages)) {
+
+  if (isset($_SESSION['logged']) && isset($_SESSION['logged']) === true) {
+    if ($_GET['page'] === "login") {
+      $home->index("dashbord");
+    } else {
+      $page = $_GET['page'];
+      $home->index($page);
+    }
+    
+  }else{
+    $home->index('login');
+  }
+
+}else if(isset($_GET['page']) && in_array($_GET['page'],$pages)){
+      $page=$_GET['page'];
+      $home->index($page);
 }else{
   include('views/includes/404.php');
 }
-
