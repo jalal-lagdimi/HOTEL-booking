@@ -5,7 +5,7 @@ require_once './controllers/HomeController.php';
 
 $home = new HomeController();
 
-$pages = ['home','add','update','delete','logout','dashbord','login','loginusser','signup','booking'];
+$pages = ['home','add','update','delete','logout','dashbord','login','loginuser','signup','booking'];
 
 
 
