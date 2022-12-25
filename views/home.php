@@ -148,7 +148,6 @@ if(isset($_POST['submit'])){
 
 
  <section id="rooms" class="rooms section-padding">
- 
   <div class="container">
     <div class="row d-flex flex-wrap">
     <?php foreach($products as $product):?>
@@ -172,17 +171,13 @@ if(isset($_POST['submit'])){
                 <i class="fa-solid fa-star"></i>
               </div>
               <h5 mb-3><?php echo $product['price'];?>$/Night</h5>
-              <form action="reservation" method="POST">
-              <input type="hidden" name="id" value="<?php echo $product['id'];?>">
-              <button type="submit" name="submit">Book</button>
-              </form>
+              <button ><a class="btn text-white" href="<?php echo BASE_URL;?>reservation">Book Now</a></button>
             </div>
           </div>
         </div> 
       </div> 
       <?php endforeach; ?>
     </div>
-
  </section>
 </section>
 <!-- ABOUT US -->

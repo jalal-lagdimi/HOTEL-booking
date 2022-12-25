@@ -133,30 +133,6 @@ class ProductController{
             }
         }
     }
-
-
-
-    public function addReservation(){
-        if(isset($_POST['submit'])){
-
-            $data =  array(
-                'datedebut' => $_POST['datedebut'],
-                'datefin' => $_POST['datefin'], 
-            );
-            if(empty($_FILES['datedebut']) || empty($_POST['datefin'])){
-                Session::set('error','fill out all');
-                Redirect::to('reservation');
-            }  else{
-                $result = Product::reservation($data);
-                if($result==='ok'){
-                   Session::set('success','Room Added');
-                   Redirect::to('reservation');
-               } else {
-                   echo $result;
-               }
-          }
-          }  
-        }
-      }
+ }
 
 ?>

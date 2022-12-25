@@ -86,7 +86,6 @@ if(isset($_POST['submit'])){
                     <button name="submit" class="btn btn-dark  btn-block"  style="background-color: #06576c" type="submit">Update</button>
                     <a href="<?php echo BASE_URL;?>dashbord" class="btn btn-dark btn-block" style="background-color: #06576c">Cancel</a>
                   </div>
-
                 </form>
 
               </div>
