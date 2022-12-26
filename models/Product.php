@@ -76,6 +76,8 @@ class Product {
     }
 
 
+
+
     public static function delete($data){
         $id = $data['id'];
         try{

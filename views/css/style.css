@@ -21,6 +21,10 @@
 		bottom: 150px;
 		z-index: 2;
 	}
+	.nt{
+		bottom: 200px;
+		z-index: 2;
+	}
 	.carousel-caption h5{
 		font-size: 45px ;
 		text-transform: uppercase;
@@ -247,5 +251,19 @@
 		.date{
 			width: 100%;
 			padding: 5px 10px;
+		}
+	}
+	@media screen and (max-width: 415px){
+		.carousel-caption{
+			bottom: 320px;
+		}
+		.nt{
+			bottom: 370px;
+		}
+		
+	}
+	@media screen and (max-width: 376px){
+		.carousel-caption{
+			bottom: 250px;
 		}
 	}

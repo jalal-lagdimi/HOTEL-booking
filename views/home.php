@@ -24,9 +24,6 @@
           <a class="nav-link" href="#">HOME</a>
         </li> 
         <li class="nav-item">
-          <a class="nav-link" href="#booking">ROOMS</a>
-        </li> 
-        <li class="nav-item">
           <a class="nav-link" href="#about">ABOUT</a>
         </li> 
         <li class="nav-item">
@@ -34,7 +31,10 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#contact">CONTACT</a>
-        </li>     
+        </li>    
+        <li class="nav-item">
+          <a class="nav-link" href="booking">BOOKING</a>
+        </li>  
         <li class="nav-item">
           <a class="nav-link nv" href="loginuser">LOGIN</a>
         </li>  
@@ -92,94 +92,7 @@
   </button>
 </div>
 
-<!-- BOOKING -->
-<?php
-if(isset($_POST['submit'])){
-  $data = new ProductController();
-  $products = $data->searchAllProducts();
-}else{
-  $data = new ProductController();
-  $products = $data->getAllProducts();
-}
 
- ?>
-  <section id="booking" class="about section-padding mt-3">
-  <div class="container">
-    <div class="section-header text-center pb-3">
-      <h2>BOOKING YOUR ROOM</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum suscipit <br> itaque,fuga quas voluptate dolorem</p>
-    </div>
-    <form action="" method="POST">
-        <div class="book d-flex items-center ">
-            <div class="date" data-provide="datepicker">
-                <label for="date">From</label>
-                <input name="from"type="date" id="date" class="form-control d-block" value="2022-12-20" min="2022-12-20"
-                    max="2023-12-20">
-            </div>
-            <div class="date" data-provide="datepicker">
-                <label for="date">To</label>
-                <input name="to" type="date" id="date" class="form-control d-block" value="2022-12-20" min="2022-12-20"
-                    max="2023-12-20">
-            </div>
-            <div class="date" data-provide="datepicker">
-                <label for="">Room</label>
-                <select  name="type" class="form-select" aria-label="Default select example" id="room">
-                    <option value="SINGLE">SINGLE</option>
-                    <option value="DOUBLE">DOUBLE</option>
-                    <option value="SUITE">SUITE</option>
-                </select>
-            </div>
-            <div class="date" data-provide="datepicker" id="suite" style="display: none;">
-                <label for="">Suite</label>
-                <select  name="suitetype" class="form-select" aria-label="Default select example">
-                <option value="">Select suite type</option>
-                    <option value="Standard suite rooms">Standard suite rooms</option>
-                    <option value="Junior suite rooms">Junior suite rooms</option>
-                    <option value="Presidential suite room">Presidential suite room</option>
-                </select>
-            </div>
-            <div class="date" data-provide="datepicker">
-                <button name="submit" type="submit" class="btn bknow">Search</button>
-            </div>
-        </div> 
-    </form>
-  </div>
-
-
-
- <section id="rooms" class="rooms section-padding">
-  <div class="container">
-    <div class="row d-flex flex-wrap">
-    <?php foreach($products as $product):?>
-      <div class="col-12 col-md-6 col-lg-4 mb-5">
-        <div class="card text-light text-center bg-white pb-2">
-          <div class="card-body text-dark">
-            <div class="img-area mb-2">
-              <img src="uploads/<?php echo $product['image'];?>"style="width: 100%;height: 350px;" alt="">
-              <h3 class="card-title pt-2"style="color:rgb(22, 109, 136);"><?php echo $product['name'];?></h3>
-              <p> <?php echo $product['description'];?></p>
-              <h6 class="type" style="color:rgb(22, 109, 136);"><?php echo $product['type'];?>
-             <?php if($product['type']=='SUITE'){ ?>
-                <?php echo '/'. $product['suitetype'];   
-              }?>
-              </h6>
-              <div class="stars mb-2"style="color: rgb(255, 225, 0);">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-              <h5 mb-3><?php echo $product['price'];?>$/Night</h5>
-              <button ><a class="btn text-white" href="<?php echo BASE_URL;?>reservation">Book Now</a></button>
-            </div>
-          </div>
-        </div> 
-      </div> 
-      <?php endforeach; ?>
-    </div>
- </section>
-</section>
 <!-- ABOUT US -->
 
 <section id="about" class="about section-padding mt-1">

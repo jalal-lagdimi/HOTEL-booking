@@ -1,6 +1,6 @@
 <?php
 
 AdminController::logoutuser();
-Redirect::to('home');
+Redirect::to('loginuser');
 
 ?>
