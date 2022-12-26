@@ -70,12 +70,12 @@
         <div class="book d-flex items-center ">
             <div class="date" data-provide="datepicker">
                 <label for="date">From</label>
-                <input name="from"type="date" id="date" class="form-control d-block" value="2022-12-20" min="2022-12-20"
+                <input name="datedebut"type="date" id="date" class="form-control d-block" value="2022-12-26" min="2022-12-26"
                     max="2023-12-20">
             </div>
             <div class="date" data-provide="datepicker">
                 <label for="date">To</label>
-                <input name="to" type="date" id="date" class="form-control d-block" value="2022-12-20" min="2022-12-20"
+                <input name="datefin" type="date" id="date" class="form-control d-block" value="2022-12-27" min="2022-12-27"
                     max="2023-12-20">
             </div>
             <div class="date" data-provide="datepicker">
@@ -89,7 +89,7 @@
             <div class="date" data-provide="datepicker" id="suite" style="display: none;">
                 <label for="">Suite</label>
                 <select  name="suitetype" class="form-select" aria-label="Default select example">
-                <option value="">Select suite type</option>
+                    <option value="">Select suite type</option>
                     <option value="Standard suite rooms">Standard suite rooms</option>
                     <option value="Junior suite rooms">Junior suite rooms</option>
                     <option value="Presidential suite room">Presidential suite room</option>
