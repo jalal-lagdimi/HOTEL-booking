@@ -9,7 +9,7 @@ class Product {
 
 
     static public function searchAll($data){
-        $stmt = DB::connect()->prepare('SELECT rooms.* FROM rooms LEFT JOIN reservation ON rooms.id = reservation.idroom AND (:datedebut BETWEEN reservation.datedebut AND reservation.datefin) AND (:datefin BETWEEN reservation.datedebut AND reservation.datefin) WHERE (reservation.idroom IS NULL AND rooms.type=:type AND rooms.suitetype=:suitetype)');
+        $stmt = DB::connect()->prepare('SELECT rooms.* FROM rooms LEFT JOIN reservation ON rooms.id = reservation.idroom AND (:datedebut BETWEEN reservation.datedebut AND reservation.datefin OR :datefin BETWEEN reservation.datedebut AND reservation.datefin) WHERE reservation.idroom IS NULL AND rooms.type=:type AND rooms.suitetype=:suitetype');
 
         $stmt->bindParam(':type',$data['type']);
         $stmt->bindParam(':suitetype',$data['suitetype']);
@@ -22,7 +22,7 @@ class Product {
 
 
     static public function searchOne($data){
-        $stmt = DB::connect()->prepare('SELECT rooms.* FROM rooms LEFT JOIN reservation ON rooms.id = reservation.idroom AND (:datedebut BETWEEN reservation.datedebut AND reservation.datefin) AND (:datefin BETWEEN reservation.datedebut AND reservation.datefin) WHERE (reservation.idroom IS NULL AND rooms.type=:type)');
+        $stmt = DB::connect()->prepare('SELECT rooms.* FROM rooms LEFT JOIN reservation ON rooms.id = reservation.idroom AND (:datedebut BETWEEN reservation.datedebut AND reservation.datefin OR :datefin BETWEEN reservation.datedebut AND reservation.datefin) WHERE reservation.idroom IS NULL AND rooms.type=:type');
 
         $stmt->bindParam(':type',$data['type']);
         $stmt->bindParam(':datedebut',$data['datedebut']);
