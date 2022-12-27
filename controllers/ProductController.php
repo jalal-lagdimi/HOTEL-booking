@@ -12,12 +12,16 @@ class ProductController{
             $data =  array(
                 'type'=> $_POST['type'],
                 'suitetype'=> $_POST['suitetype'],
+                'datedebut'=> $_POST['datedebut'],
+                'datefin'=> $_POST['datefin'],
             );
             $products = Product::searchAll($data);
             return $products;
         }else{
             $data =  array(
                 'type'=> $_POST['type'],
+                'datedebut'=> $_POST['datedebut'],
+                'datefin'=> $_POST['datefin'],
             );  
             $products = Product::searchOne($data);
             return $products;

@@ -9,9 +9,12 @@ class Product {
 
 
     static public function searchAll($data){
-        $stmt = DB::connect()->prepare('SELECT * FROM rooms WHERE type=:type AND suitetype=:suitetype');
+        $stmt = DB::connect()->prepare('SELECT rooms.* FROM rooms LEFT JOIN reservation ON rooms.id = reservation.idroom AND (:datedebut BETWEEN reservation.datedebut AND reservation.datefin) AND (:datefin BETWEEN reservation.datedebut AND reservation.datefin) WHERE (reservation.idroom IS NULL AND rooms.type=:type AND rooms.suitetype=:suitetype)');
+
         $stmt->bindParam(':type',$data['type']);
         $stmt->bindParam(':suitetype',$data['suitetype']);
+        $stmt->bindParam(':datedebut',$data['datedebut']);
+        $stmt->bindParam(':datefin',$data['datefin']);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
         $stmt = null;
@@ -19,8 +22,11 @@ class Product {
 
 
     static public function searchOne($data){
-        $stmt = DB::connect()->prepare('SELECT * FROM rooms WHERE type=:type');
+        $stmt = DB::connect()->prepare('SELECT rooms.* FROM rooms LEFT JOIN reservation ON rooms.id = reservation.idroom AND (:datedebut BETWEEN reservation.datedebut AND reservation.datefin) AND (:datefin BETWEEN reservation.datedebut AND reservation.datefin) WHERE (reservation.idroom IS NULL AND rooms.type=:type)');
+
         $stmt->bindParam(':type',$data['type']);
+        $stmt->bindParam(':datedebut',$data['datedebut']);
+        $stmt->bindParam(':datefin',$data['datefin']);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
         $stmt = null;
