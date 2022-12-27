@@ -137,8 +137,25 @@ class ProductController{
             }
         }
     }
-  }
+  
 
  
-
+    public function addRes(){
+        if(isset($_POST['submit'])){
+          
+            $data =  array(
+                'datedebut' => $_POST['datedebut'],
+                'datefin' => $_POST['datefin'],
+            );
+        
+    }
+  }
+  public function addReservation(){
+    if(isset($_POST['book'])){
+        $data =  array(
+            'idroom' => $_POST['id'],
+        );
+    }
+  }
+}
 ?>

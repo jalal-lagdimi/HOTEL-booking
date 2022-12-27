@@ -59,7 +59,17 @@
 </div>
 
 <!-- BOOKING -->
+<?php
+if(isset($_POST['submit'])){
+    $newProduct = new ProductController();
+    $newProduct->addRes();
+}?>
 
+<?php
+if(isset($_POST['book'])){
+    $newProduct = new ProductController();
+    $newProduct->addReservation();
+}?>
   <section id="booking" class="about section-padding mt-3">
   <div class="container">
     <div class="section-header text-center pb-3">
@@ -134,9 +144,9 @@ if(isset($_POST['submit'])){
                 <i class="fa-solid fa-star"></i>
               </div>
               <h5 mb-3><?php echo $product['price'];?>$/Night</h5>  
-              <form action="reservation" method="POST">
+              <form action="booking" method="POST">
               <input type="hidden" name="id" value="<?php echo $product['id'];?>" >
-              <button ><a class="btn text-white">Book Now</a></button>
+              <button type="submit" name="book">Book Now</button>
               </form>
             </div>
           </div>
