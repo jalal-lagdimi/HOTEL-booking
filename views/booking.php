@@ -149,7 +149,7 @@ if(isset($_POST['submit'])){
               <form action="booking" method="POST">
               <input type="hidden" name="id" value="<?php echo $product['id'];?>" >
               <input type="hidden" name="capacity" value="<?php echo $product['capacity'];?>" >
-              <button type="submit" name="book">Book Now</button>
+              <button type="submit" name="book" style="border:none;padding:5px;border-radius:7px;">Book Now</button>
               </form>
             </div>
           </div>
