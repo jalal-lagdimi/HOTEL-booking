@@ -148,7 +148,7 @@ class ProductController{
     }
   }
     public function addReservation(){
-        if(isset($_POST['book'])){
+        if(isset($_POST['books'])){
              $data =  array(
             'iduser' => $_SESSION['id'],
             'idroom' => $_POST['id'], 
@@ -166,5 +166,24 @@ class ProductController{
     }
     
   }
+
+  public function addReservationGuest(){
+    if(isset($_POST['bookst'])){
+         $data =  array(
+        'iduser' => $_SESSION['id'],
+        'idroom' => $_POST['id'], 
+        'datedebut' => $_SESSION['datedebut'],
+        'datefin' => $_SESSION['datefin'],
+        );
+        $result = Product::addGuest($data);
+        if($result==='ok'){
+            Session::set('success','Enter guest information ');
+            Redirect::to('guest');
+        } else {
+            echo $result;
+    }   
+}
+
+}
 }
 ?>

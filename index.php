@@ -10,7 +10,7 @@ $adminPages = ['add','update','delete','logout','dashbord','login'];
 
 $pages = ['home','loginuser','signup'];
 
-$userPages = ['booking','loginuser','signup','logoutuser'];
+$userPages = ['booking','guest','loginuser','signup','logoutuser'];
 
 
 
