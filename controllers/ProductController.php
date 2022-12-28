@@ -17,6 +17,7 @@ class ProductController{
             );
             $products = Product::searchAll($data);
             return $products;
+        
         }else{
             $data =  array(
                 'type'=> $_POST['type'],
@@ -157,8 +158,8 @@ class ProductController{
             );
             $result = Product::addRes($data);
             if($result==='ok'){
-                Session::set('success','Reservation added');
-                Redirect::to('booking');
+                Session::set('success','Reservation added successfully ');
+                Redirect::to('booking#booking');
             } else {
                 echo $result;
         }   

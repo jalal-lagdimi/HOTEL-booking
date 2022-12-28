@@ -73,6 +73,8 @@ if(isset($_POST['submit'])){
   <section id="booking" class="about section-padding mt-3">
   <div class="container">
     <div class="section-header text-center pb-3">
+    <?php include "./views/includes/alerts.php" ?>
+
       <h2>BOOKING YOUR ROOM</h2>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum suscipit <br> itaque,fuga quas voluptate dolorem</p>
     </div>
