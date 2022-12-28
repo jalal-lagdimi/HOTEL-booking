@@ -142,20 +142,28 @@ class ProductController{
  
     public function addRes(){
         if(isset($_POST['submit'])){
-          
-            $data =  array(
-                'datedebut' => $_POST['datedebut'],
-                'datefin' => $_POST['datefin'],
-            );
-        
+            $_SESSION['datedebut'] = $_POST['datedebut'];
+            $_SESSION['datefin'] = $_POST['datefin'];
     }
   }
-  public function addReservation(){
-    if(isset($_POST['book'])){
-        $data =  array(
-            'idroom' => $_POST['id'],
-        );
+    public function addReservation(){
+        if(isset($_POST['book'])){
+             $data =  array(
+            'iduser' => $_SESSION['id'],
+            'idroom' => $_POST['id'], 
+            'capacity' => $_POST['capacity'], 
+            'datedebut' => $_SESSION['datedebut'],
+            'datefin' => $_SESSION['datefin'],
+            );
+            $result = Product::addRes($data);
+            if($result==='ok'){
+                Session::set('success','Reservation added');
+                Redirect::to('booking');
+            } else {
+                echo $result;
+        }   
     }
+    
   }
 }
 ?>

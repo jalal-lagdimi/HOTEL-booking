@@ -52,8 +52,10 @@ class AdminController{
         if(isset($_POST['submit'])){
             $data['email'] = $_POST['email'];
             $result = Admin::loginuser($data);
+         
             if($result->email === $_POST['email'] && password_verify($_POST['password'],$result->password)){
                 $_SESSION['loggeduser'] = true;
+                $_SESSION['id'] = $result->id;
                 Redirect::to('booking');
             } else {
                 Session::set('error','email or password not valid');

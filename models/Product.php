@@ -64,6 +64,23 @@ class Product {
         }
         $stmt=null;
     }
+
+
+    static public function addRes($data){
+        $stmt = DB::connect()->prepare('INSERT INTO reservation (datedebut,datefin,idroom,iduser,capacity)VALUES (:datedebut,:datefin,:idroom,:iduser,:capacity)');
+        $stmt->bindParam(':datedebut',$data['datedebut']);
+        $stmt->bindParam(':datefin',$data['datefin']);
+        $stmt->bindParam(':idroom',$data['idroom']);
+        $stmt->bindParam(':iduser',$data['iduser']);
+        $stmt->bindParam(':capacity',$data['capacity']);
+       
+        if($stmt->execute()){
+            return 'ok';
+        } else {
+            return 'error';
+        }
+        $stmt=null;
+    }
     static public function add1($data){
         $stmt = DB::connect()->prepare('INSERT INTO rooms (name,description,capacity,price,type,image)VALUES (:name,:description,:capacity,:price,:type,:image)');
         $stmt->bindParam(':name',$data['name']);
