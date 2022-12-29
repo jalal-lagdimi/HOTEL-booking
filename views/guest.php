@@ -58,6 +58,36 @@
   </div>
 </div>
 
+<!-- GUEST FORM -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mt-5">
+        <div class="section-header text-center pb-3">
+          <h2>Max number of guest is 6</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br> Debitis officiis omnis laboriosam quas.</p>
+        </div>
+      </div>
+    </div>
+    </div>
+    
+    
+
+
+
+<div  class="form-area">
+  <div class="container">
+    <div class="col-4 col-md-8  justify-content-center" >
+      <label for="">Guest number</label>
+      <div class="form-floating mb-3">
+        <input class="form-control" type="number" id="guestNumber" min="0" max="6" required/>
+      </div>
+        <div id="guestInfo"></div>
+        <button type="submit" class="btn btn-primary">book</button>
+    </div>
+  </div>
+</div>
+
 
  <!-- FOOTER -->
 
@@ -98,6 +128,5 @@
   <p class="text-center pt-4">Copyright@2023 CR7 | all rights reserved | contact </p>
  </footer>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
- <script src="./views/js/book.js"></script>
-</body>
+ <script src="./views/js/guest.js"></script>
 </html>
