@@ -68,10 +68,7 @@ if(isset($_POST['submit'])){
       $newRes = new ProductController();
       $newRes->addReservation();
 }
-if(isset($_POST['bookst'])){
-  $newGes = new ProductController();
-  $newGes->addReservationGuest();
-}?>
+?>
 
 
   <section id="booking" class="about section-padding mt-3">
@@ -86,13 +83,13 @@ if(isset($_POST['bookst'])){
         <div class="book d-flex items-center ">
             <div class="date" data-provide="datepicker">
                 <label for="date">From</label>
-                <input name="datedebut"type="date" id="date" class="form-control d-block" value="2022-12-26" min="2022-12-26"
-                    max="2023-12-20">
+                <input name="datedebut"type="date" id="date" class="form-control d-block" value="2023-01-01" min="2023-01-01"
+                    max="2023-12-30">
             </div>
             <div class="date" data-provide="datepicker">
                 <label for="date">To</label>
-                <input name="datefin" type="date" id="date" class="form-control d-block" value="2022-12-27" min="2022-12-27"
-                    max="2023-12-20">
+                <input name="datefin" type="date" id="date" class="form-control d-block" value="2023-01-02" min="2023-01-02"
+                    max="2023-12-30">
             </div>
             <div class="date" data-provide="datepicker">
                 <label for="">Room</label>
@@ -156,7 +153,7 @@ if(isset($_POST['submit'])){
               <?php if($product['type']=='SINGLE'||$product['type']=='DOUBLE'){ ?>
                 <button type="submit" name="books" style="border:none;padding:5px;border-radius:7px;">Book Now</button>
              <?php }else{ ?>
-                <button type="submit" name="bookst" style="border:none;padding:5px;border-radius:7px;">Book </button>
+                <button type="submit" name="bookst" style="border:none;padding:5px;border-radius:7px;">Book Now</button>
                 <?php   }?>
         
               </form>

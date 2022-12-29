@@ -8,6 +8,28 @@ class Product {
     }
 
 
+    static public function getProduct($data){
+        $id = $data['id'];
+        try{
+            $query = 'SELECT * FROM rooms WHERE id=:id';
+            $stmt = DB::connect()->prepare($query);
+            $stmt->execute(array(":id"=>$id));
+            $product= $stmt->fetch(PDO::FETCH_ASSOC);
+            return $product;
+        }catch(PDOException $ex){
+            echo 'error' . $ex->getMessage();
+        }
+    }
+
+  
+    static public function getAllRes(){
+            $stmt = DB::connect()->prepare('SELECT * FROM reservation inner join user,rooms WHERE reservation.iduser = user.id AND reservation.idroom = rooms.id ');
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $stmt = null;
+        }
+
+
     static public function searchAll($data){
         $stmt = DB::connect()->prepare('SELECT rooms.* FROM rooms LEFT JOIN reservation ON rooms.id = reservation.idroom AND (:datedebut BETWEEN reservation.datedebut AND reservation.datefin OR :datefin BETWEEN reservation.datedebut AND reservation.datefin) WHERE reservation.idroom IS NULL AND rooms.type=:type AND rooms.suitetype=:suitetype');
 
@@ -30,20 +52,6 @@ class Product {
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
         $stmt = null;
-    }
-
-
-    static public function getProduct($data){
-        $id = $data['id'];
-        try{
-            $query = 'SELECT * FROM rooms WHERE id=:id';
-            $stmt = DB::connect()->prepare($query);
-            $stmt->execute(array(":id"=>$id));
-            $product= $stmt->fetch(PDO::FETCH_ASSOC);
-            return $product;
-        }catch(PDOException $ex){
-            echo 'error' . $ex->getMessage();
-        }
     }
 
 
@@ -83,20 +91,6 @@ class Product {
     }
 
 
-    static public function addGuest($data){
-        $stmt = DB::connect()->prepare('INSERT INTO reservation (datedebut,datefin,idroom,iduser)VALUES (:datedebut,:datefin,:idroom,:iduser)');
-        $stmt->bindParam(':datedebut',$data['datedebut']);
-        $stmt->bindParam(':datefin',$data['datefin']);
-        $stmt->bindParam(':idroom',$data['idroom']);
-        $stmt->bindParam(':iduser',$data['iduser']);
-       
-        if($stmt->execute()){
-            return 'ok';
-        } else {
-            return 'error';
-        }
-        $stmt=null;
-    }
     static public function add1($data){
         $stmt = DB::connect()->prepare('INSERT INTO rooms (name,description,capacity,price,type,image)VALUES (:name,:description,:capacity,:price,:type,:image)');
         $stmt->bindParam(':name',$data['name']);
@@ -130,6 +124,8 @@ class Product {
             echo 'error' . $ex->getMessage();
         }
     }
+
+
 
 
 
