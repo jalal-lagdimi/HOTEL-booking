@@ -90,6 +90,29 @@ class Product {
         $stmt=null;
     }
 
+    static public function addGes($datages){
+        $stmt = DB::connect()->prepare('INSERT INTO guest (fullname,date)VALUES (:fullname,:date)');
+        // var_dump($stmt);
+        // die;
+        $stmt->bindParam(':fullname',$datages['fullname']);
+        $stmt->bindParam(':date',$datages['date']);
+       
+        if($stmt->execute()){
+            return 'ok';
+        } else {
+            return 'error';
+        }
+        $stmt=null;
+    }
+
+    // static public function idRes(){
+    //     $stmt = DB::connect()->prepare('SELECT MAX(idres) AS ID FROM reservation');
+    //     $stmt->execute();
+    //     $idres = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    //     return $idres;
+    //      $stmt = null;
+    // }
+
 
     static public function add1($data){
         $stmt = DB::connect()->prepare('INSERT INTO rooms (name,description,capacity,price,type,image)VALUES (:name,:description,:capacity,:price,:type,:image)');

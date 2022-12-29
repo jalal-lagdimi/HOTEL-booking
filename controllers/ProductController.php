@@ -175,9 +175,39 @@ class ProductController{
   public function addReservationGuest(){
     if(isset($_POST['bookst'])){
         $_SESSION['idroom'] = $_POST['id'];
-           Redirect::to('guest');  
-            
+           Redirect::to('guest');         
     }
+}
+  public function addGuest(){
+    if(isset($_POST['booksuite'])){
+        $i=0;
+        $data =  array(
+            'iduser' => $_SESSION['id'],
+            'idroom' =>$_SESSION['idroom'], 
+            'capacity' => $_POST['number'], 
+            'datedebut' => $_SESSION['datedebut'],
+            'datefin' => $_SESSION['datefin'], 
+            );
+            
+        $result = Product::addRes($data);
+        // $result = Product::idRes();
+       
+        while($i<$_POST['number']){
+            $datages =  array(
+                'fullname' => $_POST['fullname'.$i+1], 
+                'date' => $_POST['date'.$i+1], 
+                );
+                $result = Product::addGes($datages);
+                $i++;  
+        }
+       
+        if($result==='ok'){
+            Session::set('success','Reservation added successfully ');
+            Redirect::to('booking');
+        } else {
+            echo $result;
+    }   
+   }
 
 }
 

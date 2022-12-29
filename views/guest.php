@@ -72,24 +72,30 @@
     </div>
     
     
+<?php
+    if(isset($_POST['booksuite'])){
+  $newRes = new ProductController();
+  $newRes->addGuest();
+}
+?>
 
 
-
+<form action="" method="POST">
 <div  class="form-area">
   <div class="container">
-    <form action="" method="POST">
     <div class="col-4 col-md-8  justify-content-center" >
       <label for="">Guest number</label>
       <div class="form-floating mb-3">
-        <input class="form-control" type="number" id="guestNumber" min="0" max="6" required/>
+        <input class="form-control" name="number" type="number" id="guestNumber" min="0" max="6" required/>
       </div>
         <div id="guestInfo"></div>
-        <button type="submit" name="submitsuite" class="btn btn-primary">book</button>
+      
     </div>
-    </form>
+
   </div>
 </div>
-
+  <button type="submit" name="booksuite">book</button>
+</form>
 
  <!-- FOOTER -->
 
