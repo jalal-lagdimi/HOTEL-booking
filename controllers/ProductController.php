@@ -172,6 +172,15 @@ class ProductController{
     
   }
 
+  public function addReservationGuest(){
+    if(isset($_POST['bookst'])){
+        $_SESSION['idroom'] = $_POST['id'];
+           Redirect::to('guest');  
+            
+    }
+
+}
+
  
 }
 ?>

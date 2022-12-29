@@ -68,6 +68,10 @@ if(isset($_POST['submit'])){
       $newRes = new ProductController();
       $newRes->addReservation();
 }
+if(isset($_POST['bookst'])){
+  $newRes = new ProductController();
+  $newRes->addReservationGuest();
+}
 ?>
 
 
@@ -152,11 +156,13 @@ if(isset($_POST['submit'])){
               <input type="hidden" name="capacity" value="<?php echo $product['capacity'];?>" >
               <?php if($product['type']=='SINGLE'||$product['type']=='DOUBLE'){ ?>
                 <button type="submit" name="books" style="border:none;padding:5px;border-radius:7px;">Book Now</button>
+                </form>
              <?php }else{ ?>
-                <button type="submit" name="bookst" style="border:none;padding:5px;border-radius:7px;">Book Now</button>
+              <form action="guest" method="POST">
+              <button type="submit" name="bookst" style="border:none;padding:5px;border-radius:7px;">Book</button>
+                </form>
                 <?php   }?>
-        
-              </form>
+            
             </div>
           </div>
         </div> 
