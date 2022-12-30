@@ -91,11 +91,11 @@ class Product {
     }
 
     static public function addGes($datages){
-        $stmt = DB::connect()->prepare('INSERT INTO guest (fullname,date)VALUES (:fullname,:date)');
-        // var_dump($stmt);
-        // die;
+        $stmt = DB::connect()->prepare('INSERT INTO guest (fullname,date,idres)VALUES (:fullname,:date,:idres)');
+      
         $stmt->bindParam(':fullname',$datages['fullname']);
         $stmt->bindParam(':date',$datages['date']);
+        $stmt->bindParam(':idres',$datages['idres']);
        
         if($stmt->execute()){
             return 'ok';
@@ -105,13 +105,14 @@ class Product {
         $stmt=null;
     }
 
-    // static public function idRes(){
-    //     $stmt = DB::connect()->prepare('SELECT MAX(idres) AS ID FROM reservation');
-    //     $stmt->execute();
-    //     $idres = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    //     return $idres;
-    //      $stmt = null;
-    // }
+    static public function idRes(){
+        $stmt = DB::connect()->prepare('SELECT MAX(id) AS ID FROM reservation');
+        $stmt->execute();
+        $idres = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $id  =  $idres[0]['ID'];
+        return $id;
+        $stmt = null;
+    }
 
 
     static public function add1($data){

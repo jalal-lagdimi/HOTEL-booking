@@ -190,12 +190,13 @@ class ProductController{
             );
             
         $result = Product::addRes($data);
-        // $result = Product::idRes();
+        $result = Product::idRes();
        
         while($i<$_POST['number']){
             $datages =  array(
                 'fullname' => $_POST['fullname'.$i+1], 
                 'date' => $_POST['date'.$i+1], 
+                'idres' =>$result,
                 );
                 $result = Product::addGes($datages);
                 $i++;  
