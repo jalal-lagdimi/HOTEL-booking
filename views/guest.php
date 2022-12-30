@@ -79,23 +79,35 @@
 }
 ?>
 
-
 <form action="" method="POST">
 <div  class="form-area">
   <div class="container">
-    <div class="col-4 col-md-8  justify-content-center" >
-      <label for="">Guest number</label>
-      <div class="form-floating mb-3">
-        <input class="form-control" name="number" type="number" id="guestNumber" min="0" max="6" required/>
+    <div class="row">
+     
+    <div class="row single-form g-0">
+      <div class="col-sm-12 col-lg-6">
+        <div class="left" style="height: 100%;">
+          <h2><span>ENTER NUMBER OF GUEST</span> <br>and information</h2>
+        </div>
       </div>
-        <div id="guestInfo"></div>
-      
+      <div class="col-ms-12 col-lg-6">
+        <div class="right">
+        
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Guest number</label>
+              <input class="form-control" name="number" type="number" id="guestNumber" min="0" max="6" />
+            </div>
+            <div  id="guestInfo" class="mb-3"></div>
+            <button type="submit" name="booksuite">BOOK NOW</button>  
+        </div>
+      </div>  
     </div>
-
   </div>
+ </div>
 </div>
-  <button type="submit" name="booksuite">book</button>
 </form>
+
+
 
  <!-- FOOTER -->
 

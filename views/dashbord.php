@@ -17,17 +17,17 @@ $Res = $data->getAllReservation();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>crud</title>
 </head>
-<body>
+<body style="background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,83,121,1) 35%, rgba(0,212,255,1) 100%);">
     <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="color: #ffff; background-color:#21849d;width: 100%;">ADMIN INTERFACE</nav>
     <div class="container d-flex justify-content-between">
-        <a href="<?php echo BASE_URL;?>add" class="btn  mb-3" style="background-color: #259d21; color:#ffff">ADD NEW</a>
-        <a href="<?php echo BASE_URL;?>logout" class="btn  mb-3" style="background-color: #de0505; color:#ffff">LOG OUT</a>
+        <a href="<?php echo BASE_URL;?>add" class="btn  mb-3" style=" background-color:#05A01F;color:#ffff">ADD NEW</a>
+        <a href="<?php echo BASE_URL;?>logout" class="btn  mb-3" style="background-color: #B50000; color:#ffff">LOG OUT</a>
     </div>
-    <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="color: rgb(0, 0, 0);">ROOM CRUD</nav>
     <div class="container">
     <?php include "./views/includes/alerts.php" ?>
-    <table class="table table-hover text-center">
-  <thead class="table" style="background-color: #064757; color:aliceblue">
+    <table class="table text-center">
+  <thead class="table" style="background-color: #064757; color:#ffff">
  
     <tr>
       <th scope="col">IMAGE</th>
@@ -39,7 +39,7 @@ $Res = $data->getAllReservation();
       <th scope="col" >ACTION</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody style="background-color:#ffff;">
   <?php foreach($products as $product):?>
     <tr>
       <th><img src="uploads/<?php echo $product['image'];?>" style="width: 50px; hieght:50px"></th>
@@ -64,12 +64,12 @@ $Res = $data->getAllReservation();
 </table>
     </div>
 
-    <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="color: rgb(0, 0, 0);">OUR RESERVATION</nav>
+    <nav class="navbar navbar-light justify-content-center fs-3 mb-3" style="color: #ffff">OUR RESERVATION</nav>
     <div class="container">
-      <table class="table table-hover text-center">
-    <thead class="table" style="background-color: #024757; color:aliceblue">
+      <table class="table text-center">
+    <thead class="table " style="background-color: #064757; color:#ffff">
    
-      <tr>
+    <tr>
         <th scope="col">FROM</th>
         <th scope="col">TO</th>
         <th scope="col">GUEST</th>
@@ -78,7 +78,7 @@ $Res = $data->getAllReservation();
         <th scope="col">TYPE</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody style="background-color:#ffff;">
     <?php foreach($Res as $Reserv):?>
       <tr>
         <td ><?php echo $Reserv['datedebut'];?></td>
@@ -94,40 +94,7 @@ $Res = $data->getAllReservation();
       </div>
 </body>
 
-<footer class="container-fluid text-white mt-5 pt-5 pb-4" style="background-color:rgb(22, 109, 136);">
-  <div class="container-fluid text-md-left">
-    <div class="row  text-md-left">
-      <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-        <h5 class="mb-4 font-weight-bold ">OUR HISTORY</h5>
-        <p>Lorem ipsum dolor sit ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing elit ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing elit . Natus,  Nam, sint nisi
-        </p>
-      </div>
-      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-        <h5 class="mb-4 font-weight-bold ">SERVICES</h5>
-        <p><i class="bi bi-tsunami"></i> Surf</p>
-        <p> <i class="fa-solid fa-dumbbell"></i> Fitness</p>
-        <p><i class="bi bi-boombox-fill"></i> Vibes</p>
-        <p><i class="bi bi-cup-straw"></i> Food</p>
-      </div>
-
-      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-        <h5 class="mb-4 font-weight-bold ">NAVIGATION</h5>
-        <p><i class="bi bi-facebook"></i> Facebook</p>
-        <p><i class="bi bi-instagram"></i> Instagram</p>
-        <p><i class="bi bi-twitter"></i> Twitter</p>
-        <p><i class="bi bi-snapchat"></i> Snapchat</p>
-      </div>
-
-      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-        <h5 class="mb-4 font-weight-bold ">CONTACT WITH US</h5>
-        <p><i class="fas fa-home mr-3"></i> Benfica Portugal, 3848</p>
-        <p><i class="fas fa-envelope mr-3"></i> Benfica7@gmail.com</p>
-        <p><i class="fas fa-phone mr-3"></i> +433 564474322008</p>
-        <p><i class="fas fa-print mr-3"></i> +433 564474322008</p>
-      </div>
-    </div>
-
-  </div>
+<footer class="container-fluid text-white mt-5 pt-2 pb-2" style="background-color:rgb(22, 109, 136);">
   <p class="text-center pt-4">Copyright@2023 CR7 | all rights reserved | contact </p>
  </footer>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
