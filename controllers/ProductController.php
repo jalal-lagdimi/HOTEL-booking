@@ -180,7 +180,7 @@ class ProductController{
 }
   public function addGuest(){
     if(isset($_POST['booksuite'])){
-        $i=0;
+        $i=1;
         $data =  array(
             'iduser' => $_SESSION['id'],
             'idroom' =>$_SESSION['idroom'], 
@@ -190,13 +190,13 @@ class ProductController{
             );
             
         $result = Product::addRes($data);
-        $result = Product::idRes();
+        $id = Product::idRes();
        
-        while($i<$_POST['number']){
+        while($i<=$_POST['number']){
             $datages =  array(
-                'fullname' => $_POST['fullname'.$i+1], 
-                'date' => $_POST['date'.$i+1], 
-                'idres' =>$result,
+                'fullname' => $_POST['fullname'.$i], 
+                'date' => $_POST['date'.$i], 
+                'idres' =>$id,
                 );
                 $result = Product::addGes($datages);
                 $i++;  
