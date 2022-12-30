@@ -159,7 +159,7 @@ if(isset($_POST['submit'])){
                 </form>
              <?php }else{ ?>
               <form action="guest" method="POST">
-              <button type="submit" name="bookst" style="border:none;padding:5px;border-radius:7px;">Book</button>
+              <button type="submit" name="bookst" style="border:none;padding:5px;border-radius:7px;">Book Now</button>
                 </form>
                 <?php   }?>
             

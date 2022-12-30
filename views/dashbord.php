@@ -72,7 +72,7 @@ $Res = $data->getAllReservation();
       <tr>
         <th scope="col">FROM</th>
         <th scope="col">TO</th>
-        <th scope="col">CAPACITY</th>
+        <th scope="col">GUEST</th>
         <th scope="col">PRICE</th>
         <th scope="col">CLIENT</th>
         <th scope="col">TYPE</th>
@@ -83,7 +83,7 @@ $Res = $data->getAllReservation();
       <tr>
         <td ><?php echo $Reserv['datedebut'];?></td>
         <td ><?php echo $Reserv['datefin'];?></td>
-        <td ><?php echo $Reserv['capacity'];?></td>
+        <td ><?php echo $Reserv['guestnumber'];?></td>
         <td ><?php echo $Reserv['price'];?>$/Night</td>
         <td ><?php echo $Reserv['fullname'];?></td>
         <td ><?php echo $Reserv['type'];?></td>

@@ -157,7 +157,7 @@ class ProductController{
              $data =  array(
             'iduser' => $_SESSION['id'],
             'idroom' => $_POST['id'], 
-            'capacity' => $_POST['capacity'], 
+            'guestnumber' => $_POST['capacity'], 
             'datedebut' => $_SESSION['datedebut'],
             'datefin' => $_SESSION['datefin'],
             );
@@ -184,12 +184,12 @@ class ProductController{
         $data =  array(
             'iduser' => $_SESSION['id'],
             'idroom' =>$_SESSION['idroom'], 
-            'capacity' => $_POST['number'], 
+            'guestnumber' => $_POST['number'], 
             'datedebut' => $_SESSION['datedebut'],
             'datefin' => $_SESSION['datefin'], 
             );
             
-        $result = Product::addRes($data);
+        $result = Product::addResv($data);
         $id = Product::idRes();
        
         while($i<=$_POST['number']){
