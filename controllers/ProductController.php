@@ -11,6 +11,11 @@ class ProductController{
         return $Res;
     }
 
+    public function getAllReservationGuest(){
+        $ResGes = Product::getAllResGes();
+        return $ResGes;
+    }
+
 
     public function searchAllProducts(){
         if(!empty($_POST['suitetype'])){
@@ -136,8 +141,21 @@ class ProductController{
             $data['id'] =$_POST['id'];
             $result = Product::delete($data);
             if($result==='ok'){
-                Session::set('success','Product Delete');
+                Session::set('success','Room Delete');
                 Redirect::to('dashbord');
+            } else {
+                echo $result;
+            }
+        }
+    }
+
+    public function deleteReservation(){
+        if(isset($_POST['id'])){
+            $data['id'] =$_POST['id'];
+            $result = Product::deleteRes($data);
+            if($result==='ok'){
+                Session::set('success','Reservation delete');
+                Redirect::to('reservation');
             } else {
                 echo $result;
             }

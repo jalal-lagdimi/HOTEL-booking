@@ -29,6 +29,14 @@ class Product {
             $stmt = null;
         }
 
+    static public function getAllResGes(){
+            $stmt = DB::connect()->prepare('SELECT * FROM reservation INNER join rooms ON reservation.idroom = rooms.id WHERE reservation.iduser = '.$_SESSION['id'].'');
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            die(var_dump($stmt));
+            $stmt = null;
+        }
+
 
     static public function searchAll($data){
         $stmt = DB::connect()->prepare('SELECT rooms.* FROM rooms LEFT JOIN reservation ON rooms.id = reservation.idroom AND (:datedebut BETWEEN reservation.datedebut AND reservation.datefin OR :datefin BETWEEN reservation.datedebut AND reservation.datefin) WHERE reservation.idroom IS NULL AND rooms.type=:type AND rooms.suitetype=:suitetype');
@@ -153,6 +161,21 @@ class Product {
         $id = $data['id'];
         try{
             $query = 'DELETE FROM rooms WHERE id=:id';
+            $stmt = DB::connect()->prepare($query);
+            $stmt->execute(array(":id"=>$id));
+            if($stmt->execute()){
+                return 'ok';
+            } 
+        }catch(PDOException $ex){
+            echo 'error' . $ex->getMessage();
+        }
+    }
+
+
+    public static function deleteRes($data){
+        $id = $data['id'];
+        try{
+            $query = 'DELETE FROM reservation WHERE idroom=:id';
             $stmt = DB::connect()->prepare($query);
             $stmt->execute(array(":id"=>$id));
             if($stmt->execute()){

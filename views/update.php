@@ -66,7 +66,7 @@ if(isset($_POST['submit'])){
                   <div class="form-outline mb-2" name="suitetype"  id="suite" style="display: none;">
                     <select class="form-select"  name="suitetype" aria-label="Default select example">   
                         <option value="">Select suite type</option>  
-                        <option value="Junior suite rooms">Standard suite rooms</option>
+                        <option value="Standard suite rooms">Standard suite rooms</option>
                         <option value="Junior suite rooms">Junior suite rooms</option>
                         <option value="Presidential suite room">Presidential suite room</option>
                       </select>

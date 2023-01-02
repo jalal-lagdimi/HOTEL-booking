@@ -4,7 +4,13 @@ $products = $data->getAllProducts();
 
 $data = new ProductController();
 $Res = $data->getAllReservation();
+?>
 
+<?php
+if(isset($_POST['id'])){
+    $exitProduct = new ProductController();
+    $exitProduct->deleteProduct();
+}
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +59,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,83,121,1) 35%, rgba
         <input type="hidden" name="id" value="<?php echo $product['id'];?>" >
         <button style="border: none;background-color:#ffff"><a href="" class="link-dark "><i class="fa-solid fa-pen-to-square fs-5 me-3"></i></a></button> 
         </form>
-        <form method="POST" action="delete">
+        <form method="POST" action="dashbord">
         <input type="hidden" name="id" value="<?php echo $product['id'];?>">
         <button style="border: none;background-color:#ffff"><a href="" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a></button>
         </form>

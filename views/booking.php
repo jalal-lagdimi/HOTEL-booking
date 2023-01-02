@@ -36,6 +36,9 @@
           <a class="nav-link" href="#booking">BOOKING</a>
         </li> 
         <li class="nav-item">
+          <a class="nav-link" href="reservation">RESERVATION</a>
+        </li> 
+        <li class="nav-item">
           <a class="nav-link nv" href="<?php echo BASE_URL;?>logoutuser">LOGOUT</a>
         </li>  
         </ul>
@@ -49,7 +52,7 @@
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="./views/img/BG1.jpg" class="d-block w-100" alt="...">
+      <img src="./views/img/BG11.jpg" class="d-block w-100" alt="...">
       <div class="carousel-caption nt ">
         <h5>BOOK YOUR ROOM</h5>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere aliquid magni veritatis? Fuga, ad sit!.</p>

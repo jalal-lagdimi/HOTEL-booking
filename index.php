@@ -6,11 +6,11 @@ require_once './controllers/HomeController.php';
 $home = new HomeController();
 
 
-$adminPages = ['add','update','delete','logout','dashbord','login'];
+$adminPages = ['add','update','logout','dashbord','login'];
 
 $pages = ['home','loginuser','signup'];
 
-$userPages = ['booking','guest','loginuser','signup','logoutuser'];
+$userPages = ['booking','guest','loginuser','signup','logoutuser','reservation'];
 
 
 
